@@ -4,47 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>เว็บไซต์ของฉัน - My Personal Portfolio</title>
-    
-    <!-- Google Fonts: Prompt -->
+
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        /* --- 1. CSS VARIABLES & THEMES --- */
         :root {
             --primary-color: #2563eb;
             --primary-hover: #1d4ed8;
             --primary-light: rgba(37, 99, 235, 0.1);
             --bg-color: #f8fafc;
-            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-bg: rgba(255,255,255,.9);
             --text-color: #0f172a;
             --text-muted: #64748b;
             --border-color: #e2e8f0;
-            --nav-bg: rgba(255, 255, 255, 0.75);
-            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-            --shadow-hover: 0 25px 30px -5px rgba(37, 99, 235, 0.15);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --nav-bg: rgba(255,255,255,.8);
+            --shadow: 0 20px 25px -5px rgba(0,0,0,.05);
+            --shadow-hover: 0 25px 30px -5px rgba(37,99,235,.15);
+            --transition: all .3s cubic-bezier(.4,0,.2,1);
         }
 
         [data-theme="dark"] {
             --primary-color: #3b82f6;
             --primary-hover: #60a5fa;
-            --primary-light: rgba(59, 130, 246, 0.15);
+            --primary-light: rgba(59,130,246,.15);
             --bg-color: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.85);
+            --card-bg: rgba(30,41,59,.9);
             --text-color: #f8fafc;
             --text-muted: #94a3b8;
             --border-color: #334155;
-            --nav-bg: rgba(15, 23, 42, 0.75);
-            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 25px 30px -5px rgba(59, 130, 246, 0.25);
+            --nav-bg: rgba(15,23,42,.85);
+            --shadow: 0 20px 25px -5px rgba(0,0,0,.3);
+            --shadow-hover: 0 25px 30px -5px rgba(59,130,246,.25);
         }
 
-        /* --- 2. BASE STYLES --- */
         * {
             margin: 0;
             padding: 0;
@@ -57,88 +56,84 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             color: var(--text-color);
-            transition: var(--transition);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: var(--transition);
         }
 
         .container {
             max-width: 1100px;
-            margin: 0 auto;
+            margin: auto;
             padding: 0 24px;
         }
 
-        /* Scroll Progress Bar */
+        /* Scroll bar */
         .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary-color), #8b5cf6);
-            z-index: 1001;
+            height: 4px;
             width: 0%;
-            transition: width 0.1s ease;
+            background: linear-gradient(to right,#2563eb,#8b5cf6);
+            z-index: 2000;
         }
 
-        /* --- 3. HEADER & NAVIGATION --- */
+        /* ================= HEADER ================= */
+
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: var(--nav-bg);
+            z-index: 1000;
+            background: var(--nav-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            transition: var(--transition);
         }
 
         .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
+            text-decoration: none;
+            color: var(--primary-color);
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .nav-links {
-            display: flex;
-            gap: 28px;
             list-style: none;
+            display: flex;
             align-items: center;
+            gap: 28px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
             position: relative;
         }
 
         .nav-links a::after {
-            content: '';
+            content: "";
             position: absolute;
-            bottom: -4px;
             left: 0;
-            width: 0%;
+            bottom: -5px;
+            width: 0;
             height: 2px;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-            border-radius: 2px;
+            background: var(--primary-color);
+            transition: .3s;
         }
 
         .nav-links a:hover::after {
@@ -151,15 +146,15 @@
 
         .nav-actions {
             display: flex;
+            gap: 10px;
             align-items: center;
-            gap: 12px;
         }
 
-        .theme-toggle {
+        .theme-toggle,
+        .menu-btn {
             background: none;
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            font-size: 1.1rem;
             cursor: pointer;
             width: 40px;
             height: 40px;
@@ -167,95 +162,103 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            transition: .3s;
         }
 
-        .theme-toggle:hover {
-            background-color: var(--primary-light);
+        .theme-toggle:hover,
+        .menu-btn:hover {
             color: var(--primary-color);
             border-color: var(--primary-color);
+            background: var(--primary-light);
         }
 
         .menu-btn {
             display: none;
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 1.4rem;
-            cursor: pointer;
         }
 
-        /* --- 4. HERO SECTION --- */
+        /* ================= HERO ================= */
+
         .hero {
-            padding: 160px 0 100px;
+            min-height: 100vh;
+            padding: 150px 0 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
+            gap: 70px;
+            width: 100%;
         }
 
         .hero-text {
             flex: 1;
         }
 
+        .hero-text .tag {
+            display: inline-block;
+            padding: 7px 15px;
+            border-radius: 30px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            font-size: .9rem;
+            margin-bottom: 20px;
+        }
+
         .hero-text h1 {
             font-size: 3.2rem;
             line-height: 1.25;
             margin-bottom: 20px;
-            font-weight: 700;
         }
 
         .hero-text h1 span {
-            background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+            background: linear-gradient(135deg,#2563eb,#8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-text p {
-            font-size: 1.15rem;
             color: var(--text-muted);
-            margin-bottom: 35px;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 30px;
         }
 
         .btn-group {
             display: flex;
-            gap: 16px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 12px;
-            font-weight: 500;
-            font-size: 1rem;
             text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
+            transition: .3s;
+            font-weight: 500;
         }
 
         .btn-primary {
-            background-color: var(--primary-color);
+            background: var(--primary-color);
             color: white;
-            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-hover);
+            background: var(--primary-hover);
             transform: translateY(-3px);
-            box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.5);
         }
 
         .btn-secondary {
-            background-color: transparent;
-            color: var(--text-color);
             border: 1px solid var(--border-color);
+            color: var(--text-color);
         }
 
         .btn-secondary:hover {
-            background-color: var(--primary-light);
             border-color: var(--primary-color);
             color: var(--primary-color);
             transform: translateY(-3px);
@@ -268,25 +271,34 @@
         }
 
         .avatar-box {
-            width: 280px;
-            height: 280px;
+            width: 290px;
+            height: 290px;
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+            background: linear-gradient(135deg,#2563eb,#8b5cf6);
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             color: white;
-            font-size: 5.5rem;
-            box-shadow: var(--shadow);
-            animation: morph 8s ease-in-out infinite;
+            font-size: 6rem;
+            box-shadow: 0 30px 60px rgba(37,99,235,.25);
+            animation: morph 8s infinite ease-in-out;
         }
 
         @keyframes morph {
-            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+            0%,100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+            50% {
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+            }
         }
 
-        /* --- 5. SECTION HEADERS --- */
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 90px 0;
+        }
+
         .section-header {
             text-align: center;
             margin-bottom: 50px;
@@ -294,34 +306,28 @@
 
         .section-header h2 {
             font-size: 2.2rem;
-            margin-bottom: 12px;
-            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         .section-header p {
             color: var(--text-muted);
-            font-size: 1.05rem;
         }
 
-        /* --- 6. SERVICES SECTION --- */
-        .services {
-            padding: 80px 0;
-        }
+        /* ================= CARDS ================= */
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
         }
 
         .card {
-            background-color: var(--card-bg);
-            padding: 36px 28px;
-            border-radius: 20px;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 20px;
             box-shadow: var(--shadow);
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
+            transition: .3s;
         }
 
         .card:hover {
@@ -333,25 +339,46 @@
         .card-icon {
             width: 58px;
             height: 58px;
-            background-color: var(--primary-light);
-            color: var(--primary-color);
             border-radius: 14px;
+            background: var(--primary-light);
+            color: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: .95rem;
         }
 
-        /* --- 7. PORTFOLIO SECTION --- */
-        .portfolio {
+        /* ================= PORTFOLIO ================= */
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            overflow: hidden;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: .3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .portfolio-image {
+            hei
