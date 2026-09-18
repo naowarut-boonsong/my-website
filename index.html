@@ -111,7 +111,6 @@
             gap: 10px;
         }
 
-        /* เพิ่ม CSS สไตล์โลโก้ที่นี่ */
         .logo-img {
             width: 45px;
             height: 45px;
@@ -190,6 +189,12 @@
             padding: 150px 0 80px;
             display: flex;
             align-items: center;
+            /* เพิ่มรูปพื้นหลังมหาวิทยาลัย */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('images/bg-university.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff;
         }
 
         .hero-content {
@@ -208,26 +213,28 @@
             display: inline-block;
             padding: 7px 15px;
             border-radius: 30px;
-            background: var(--primary-light);
-            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
             font-size: .9rem;
             margin-bottom: 20px;
+            backdrop-filter: blur(5px);
         }
 
         .hero-text h1 {
             font-size: 3.2rem;
             line-height: 1.25;
             margin-bottom: 20px;
+            color: #ffffff;
         }
 
         .hero-text h1 span {
-            background: linear-gradient(135deg,#2563eb,#8b5cf6);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-text p {
-            color: var(--text-muted);
+            color: #e2e8f0;
             font-size: 1.1rem;
             max-width: 600px;
             margin-bottom: 30px;
@@ -261,13 +268,16 @@
         }
 
         .btn-secondary {
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
         }
 
         .btn-secondary:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
             transform: translateY(-3px);
         }
 
@@ -275,29 +285,21 @@
             flex: 1;
             display: flex;
             justify-content: center;
-        }
-
-        .avatar-box {
-            width: 290px;
-            height: 290px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            background: linear-gradient(135deg,#2563eb,#8b5cf6);
-            display: flex;
-            justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 6rem;
-            box-shadow: 0 30px 60px rgba(37,99,235,.25);
-            animation: morph 8s infinite ease-in-out;
         }
 
-        @keyframes morph {
-            0%,100% {
-                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            }
-            50% {
-                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
-            }
+        /* รูปตรามหาวิทยาลัยส่วน Hero */
+        .hero-logo-img {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .hero-logo-img:hover {
+            transform: scale(1.03);
         }
 
         /* ================= SECTIONS ================= */
@@ -575,10 +577,8 @@
                 font-size: 2.4rem;
             }
 
-            .avatar-box {
-                width: 230px;
-                height: 230px;
-                font-size: 4.5rem;
+            .hero-logo-img {
+                max-width: 220px;
             }
         }
 
@@ -678,9 +678,7 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <div class="avatar-box">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
+                        <img src="images/logo.png" alt="ตรามหาวิทยาลัยราชภัฏศรีสะเกษ" class="hero-logo-img">
                     </div>
                 </div>
             </div>
