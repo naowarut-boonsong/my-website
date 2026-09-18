@@ -7,25 +7,11 @@
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://ดูเหมือนว่าโค้ดเว็บไซต์ **Virtual Tour 360° มหาวิทยาลัยราชภัฏศรีสะเกษ** ของคุณจะถูกตัดหายไปตรงส่วนท้ายของ JavaScript นะคะ นอกจากนี้ยังมีจุดผิดพลาดเล็กๆ ทางไวยากรณ์ (Syntax) ในส่วนของ CSS และ HTML บางจุดที่อาจทำให้หน้าเว็บแสดงผลผิดเพี้ยนได้ค่ะ
-
-ฉันได้ทำการแก้ไขจุดที่พิมพ์ตกหล่น เติมโค้ดส่วนที่หายไปให้สมบูรณ์ และเพิ่มสคริปต์สำหรับแถบ Scroll Progress ให้ทำงานได้จริงเรียบร้อยแล้วค่ะ คุณสามารถคัดลอกโค้ดฉบับสมบูรณ์ด้านล่างนี้ไปใช้งานได้เลย:
-
-```html
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Tour 360° มหาวิทยาลัยราชภัฏศรีสะเกษ</title>
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
@@ -35,7 +21,6 @@
             --bg-color: #fffdf7;
             --card-bg: #ffffff;
             --border-color: #f2e3ad;
-            /* เพิ่มตัวแปรสำหรับ Light Mode ที่ขาดไป */
             --text-color: #1e293b;
             --text-muted: #64748b;
             --nav-bg: rgba(255, 253, 247, 0.85);
@@ -126,9 +111,11 @@
             gap: 10px;
         }
 
+        /* เพิ่ม CSS สไตล์โลโก้ที่นี่ */
         .logo-img {
-            height: 40px;
-            border-radius: 5px;
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -631,21 +618,10 @@
     <!-- ================= HEADER ================= -->
 
     <header>
-      .logo {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-size: 1.4rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-}
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <img src="images/logo.png" alt="SSKRU Logo" class="logo-img">
+                SSKRU Virtual Tour
             </a>
 
             <nav>
@@ -866,9 +842,7 @@
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
-        // =========================
         // MOBILE MENU
-        // =========================
         const menuBtn = document.getElementById("menuBtn");
         const navLinks = document.getElementById("navLinks");
 
@@ -884,7 +858,6 @@
             }
         });
 
-        // ปิดเมนูเมื่อกดลิงก์
         document.querySelectorAll(".nav-links a").forEach(function(link) {
             link.addEventListener("click", function() {
                 navLinks.classList.remove("active");
@@ -894,9 +867,7 @@
             });
         });
 
-        // =========================
         // DARK MODE
-        // =========================
         const themeToggle = document.getElementById("themeToggle");
 
         themeToggle.addEventListener("click", function() {
@@ -913,21 +884,16 @@
             }
         });
 
-        // โหลด Theme ที่บันทึกไว้
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme === "dark") {
             document.documentElement.setAttribute("data-theme", "dark");
             themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
         }
 
-        // =========================
-        // DYNAMIC YEAR IN FOOTER
-        // =========================
+        // DYNAMIC YEAR
         document.getElementById("year").textContent = new Date().getFullYear();
 
-        // =========================
         // SCROLL PROGRESS BAR
-        // =========================
         window.addEventListener("scroll", () => {
             const scrollProgress = document.getElementById("scrollProgress");
             const totalHeight = document.body.scrollHeight - window.innerHeight;
