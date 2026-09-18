@@ -7,23 +7,42 @@
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://ดูเหมือนว่าโค้ดเว็บไซต์ **Virtual Tour 360° มหาวิทยาลัยราชภัฏศรีสะเกษ** ของคุณจะถูกตัดหายไปตรงส่วนท้ายของ JavaScript นะคะ นอกจากนี้ยังมีจุดผิดพลาดเล็กๆ ทางไวยากรณ์ (Syntax) ในส่วนของ CSS และ HTML บางจุดที่อาจทำให้หน้าเว็บแสดงผลผิดเพี้ยนได้ค่ะ
+
+ฉันได้ทำการแก้ไขจุดที่พิมพ์ตกหล่น เติมโค้ดส่วนที่หายไปให้สมบูรณ์ และเพิ่มสคริปต์สำหรับแถบ Scroll Progress ให้ทำงานได้จริงเรียบร้อยแล้วค่ะ คุณสามารถคัดลอกโค้ดฉบับสมบูรณ์ด้านล่างนี้ไปใช้งานได้เลย:
+
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tour 360° มหาวิทยาลัยราชภัฏศรีสะเกษ</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css)">
 
     <style>
         :root {
-          --primary-color: #c59d2f;
---primary-hover: #a88420;
---primary-light: rgba(197,157,47,.15);
-
---bg-color: #fffdf7;
---card-bg: #ffffff;
-
---border-color: #f2e3ad;
+            --primary-color: #c59d2f;
+            --primary-hover: #a88420;
+            --primary-light: rgba(197,157,47,.15);
+            --bg-color: #fffdf7;
+            --card-bg: #ffffff;
+            --border-color: #f2e3ad;
+            /* เพิ่มตัวแปรสำหรับ Light Mode ที่ขาดไป */
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --nav-bg: rgba(255, 253, 247, 0.85);
+            --shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 25px -5px rgba(197,157,47,0.25);
+            --transition: all 0.3s ease;
+        }
 
         [data-theme="dark"] {
             --primary-color: #3b82f6;
@@ -73,6 +92,7 @@
             width: 0%;
             background: linear-gradient(to right,#2563eb,#8b5cf6);
             z-index: 2000;
+            transition: width 0.1s ease;
         }
 
         /* ================= HEADER ================= */
@@ -104,6 +124,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            border-radius: 5px;
         }
 
         .nav-links {
@@ -502,7 +527,6 @@
         /* ================= MOBILE ================= */
 
         @media (max-width: 850px) {
-
             .nav-links {
                 position: absolute;
                 top: 70px;
@@ -572,7 +596,6 @@
         }
 
         @media (max-width: 480px) {
-
             .container {
                 padding: 0 18px;
             }
@@ -597,7 +620,6 @@
                 padding: 30px 20px;
             }
         }
-
     </style>
 </head>
 
@@ -609,298 +631,181 @@
     <!-- ================= HEADER ================= -->
 
     <header>
-       <a href="#home" class="logo">
-    <img src="images/logo.png" class="logo-img">
-    SSKRU Virtual Tour
-</a>
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <img src="images/logo.png" alt="SSKRU Logo" class="logo-img">
+                SSKRU Virtual Tour
+            </a>
 
             <nav>
-              <ul class="nav-links" id="navLinks">
-    <li><a href="#home">หน้าแรก</a></li>
-    <li><a href="#about">เกี่ยวกับโครงการ</a></li>
-    <li><a href="#services">คุณสมบัติ</a></li>
-    <li><a href="#portfolio">สถานที่สำคัญ</a></li>
-    <li><a href="#tour">Virtual Tour</a></li>
-    <li><a href="#contact">ผู้จัดทำ</a></li>
-</ul>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">หน้าแรก</a></li>
+                    <li><a href="#about">เกี่ยวกับโครงการ</a></li>
+                    <li><a href="#services">คุณสมบัติ</a></li>
+                    <li><a href="#portfolio">สถานที่สำคัญ</a></li>
+                    <li><a href="#tour">Virtual Tour</a></li>
+                    <li><a href="#contact">ผู้จัดทำ</a></li>
+                </ul>
             </nav>
 
             <div class="nav-actions">
-
-                <button class="theme-toggle" id="themeToggle">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
                     <i class="fa-solid fa-moon"></i>
                 </button>
 
-                <button class="menu-btn" id="menuBtn">
+                <button class="menu-btn" id="menuBtn" aria-label="Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-
             </div>
-
         </div>
     </header>
 
     <!-- ================= HERO ================= -->
 
     <main>
-
         <section class="hero" id="home">
-
             <div class="container">
-
                 <div class="hero-content">
-
                     <div class="hero-text">
-
                         <span class="tag">
                             <i class="fa-solid fa-hand-sparkles"></i>
                             Virtual Tour 360°
                         </span>
-
                         <h1>
-                            มหาวิทยาลัยราชภัฏศรีสะเกษ
-                           Virtual Tour 360°
+                            มหาวิทยาลัยราชภัฏศรีสะเกษ<br>
+                            <span>Virtual Tour 360°</span>
                         </h1>
-
                         <p>
-                            สื่อทัวร์เสมือนจริง 360 องศา
-                 เพื่อแนะนำอาคาร สถานที่สำคัญ และเส้นทางภายใน
-                มหาวิทยาลัยราชภัฏศรีสะเกษ
-               ผ่านแพลตฟอร์ม ThingLink
+                            สื่อทัวร์เสมือนจริง 360 องศา เพื่อแนะนำอาคาร สถานที่สำคัญ และเส้นทางภายใน
+                            มหาวิทยาลัยราชภัฏศรีสะเกษ ผ่านแพลตฟอร์ม ThingLink
                         </p>
-
                         <div class="btn-group">
-
                             <a href="#portfolio" class="btn btn-primary">
                                 <i class="fa-solid fa-folder-open"></i>
-                              เริ่มชม Virtual Tour
+                                เริ่มชม Virtual Tour
                             </a>
-
                             <a href="#contact" class="btn btn-secondary">
                                 <i class="fa-solid fa-paper-plane"></i>
                                 ติดต่อฉัน
                             </a>
-
                         </div>
-
                     </div>
-
                     <div class="hero-image">
-
                         <div class="avatar-box">
                             <i class="fa-solid fa-user"></i>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- ================= SERVICES ================= -->
 
         <section id="services">
-
             <div class="container">
-
                 <div class="section-header">
                     <h2>คุณสมบัติของระบบ</h2>
                     <p>จุดเด่นของสื่อ Virtual Tour 360 องศา</p>
                 </div>
-
                 <div class="grid-3">
-
                     <div class="card">
-
                         <div class="card-icon">
                             <i class="fa-solid fa-code"></i>
                         </div>
-
                         <h3>ภาพถ่าย 360 องศา</h3>
-
                         <p>
-                            จัดเก็บภาพสถานที่สำคัญภายในมหาวิทยาลัย
-ด้วยกล้อง Insta360 X4
+                            จัดเก็บภาพสถานที่สำคัญภายในมหาวิทยาลัย ด้วยกล้อง Insta360 X4
                         </p>
-
                     </div>
-
                     <div class="card">
-
                         <div class="card-icon">
                             <i class="fa-solid fa-microchip"></i>
                         </div>
-
                         <h3>ระบบนำทางอัจฉริยะ</h3>
-
                         <p>
-                           เชื่อมโยงสถานที่ต่าง ๆ ด้วย Transit Tag
-และข้อมูลประกอบบน ThingLink
+                            เชื่อมโยงสถานที่ต่าง ๆ ด้วย Transit Tag และข้อมูลประกอบบน ThingLink
                         </p>
-
                     </div>
-
                     <div class="card">
-
                         <div class="card-icon">
                             <i class="fa-solid fa-camera"></i>
                         </div>
-
                         <h3>รองรับทุกอุปกรณ์</h3>
-
                         <p>
-                            สามารถใช้งานผ่านคอมพิวเตอร์
-แท็บเล็ต และสมาร์ตโฟน
+                            สามารถใช้งานผ่านคอมพิวเตอร์ แท็บเล็ต และสมาร์ตโฟน
                         </p>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- ================= PORTFOLIO ================= -->
 
         <section id="portfolio">
-
             <div class="container">
-
                 <div class="section-header">
-
                     <h2>ผลงานของฉัน</h2>
-
-                    <p>
-                        ตัวอย่างโครงการและผลงานที่เคยจัดทำ
-                    </p>
-
+                    <p>ตัวอย่างโครงการและผลงานที่เคยจัดทำ</p>
                 </div>
-
                 <div class="portfolio-grid">
-
                     <div class="portfolio-card">
-
                         <div class="portfolio-image">
                             <i class="fa-solid fa-tree"></i>
                         </div>
-
                         <div class="portfolio-info">
-
                             <h3>รองรับทุกอุปกรณ์</h3>
-
-                            <p>
-                               สามารถใช้งานผ่านคอมพิวเตอร์
-แท็บเล็ต และสมาร์ตโฟน
-                            </p>
-
-                            <span class="portfolio-tag">
-                                IoT
-                            </span>
-
+                            <p>สามารถใช้งานผ่านคอมพิวเตอร์ แท็บเล็ต และสมาร์ตโฟน</p>
+                            <span class="portfolio-tag">IoT</span>
                         </div>
-
                     </div>
-
-
                     <div class="portfolio-card">
-
                         <div class="portfolio-image">
                             <i class="fa-solid fa-map"></i>
                         </div>
-
                         <div class="portfolio-info">
-
                             <h3>แผนที่มหาวิทยาลัย 3D</h3>
-
-                            <p>
-                                การออกแบบแผนที่มหาวิทยาลัยในรูปแบบสามมิติ
-                                เพื่อใช้ประกอบงานวิจัยและนำเสนอข้อมูลสถานที่
-                            </p>
-
-                            <span class="portfolio-tag">
-                                3D Map
-                            </span>
-
+                            <p>การออกแบบแผนที่มหาวิทยาลัยในรูปแบบสามมิติ เพื่อใช้ประกอบงานวิจัยและนำเสนอข้อมูลสถานที่</p>
+                            <span class="portfolio-tag">3D Map</span>
                         </div>
-
                     </div>
-
-
                     <div class="portfolio-card">
-
                         <div class="portfolio-image">
                             <i class="fa-solid fa-vr-cardboard"></i>
                         </div>
-
                         <div class="portfolio-info">
-
                             <h3>ระบบแนะนำสถานที่ภายในมหาวิทยาลัย</h3>
-
-                            <p>
-                                เว็บไซต์สำหรับแนะนำอาคารและสถานที่ต่าง ๆ
-                                พร้อมเชื่อมต่อภาพ 360 องศาเพื่อให้ผู้ใช้งาน
-                                สามารถสำรวจสถานที่ได้
-                            </p>
-
-                            <span class="portfolio-tag">
-                                360° Virtual Tour
-                            </span>
-
+                            <p>เว็บไซต์สำหรับแนะนำอาคารและสถานที่ต่าง ๆ พร้อมเชื่อมต่อภาพ 360 องศาเพื่อให้ผู้ใช้งานสามารถสำรวจสถานที่ได้</p>
+                            <span class="portfolio-tag">360° Virtual Tour</span>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- ================= ABOUT ================= -->
 
         <section id="about">
-
             <div class="container">
-
                 <div class="section-header">
-
                     <h2>เกี่ยวกับฉัน</h2>
-
                     <p>ข้อมูลแนะนำตัวและความสนใจ</p>
-
                 </div>
-
                 <div class="about-content">
-
                     <div>
-
-                        <h2>
-                            ข้อมูลผู้จัดทำ
-                        </h2>
-
-                        <p>
-                           โครงการพัฒนาสื่อทัวร์เสมือนจริง 360 องศา มหาวิทยาลัยราชภัฏศรีสะเกษ
-
-                        <p>
-                         นางสาวสุพรรษา โพธิ์เจริญ
-นางสาวเนาวรัตน์ บุญส่ง
-มหาวิทยาลัยราชภัฏศรีสะเกษ
+                        <h2>ข้อมูลผู้จัดทำ</h2>
+                        <p style="margin-bottom: 10px; color: var(--text-muted);">
+                            โครงการพัฒนาสื่อทัวร์เสมือนจริง 360 องศา มหาวิทยาลัยราชภัฏศรีสะเกษ
                         </p>
-
+                        <p>
+                            นางสาวสุพรรษา โพธิ์เจริญ<br>
+                            นางสาวเนาวรัตน์ บุญส่ง<br>
+                            มหาวิทยาลัยราชภัฏศรีสะเกษ
+                        </p>
                     </div>
-
                     <div class="about-box">
-
-                        <h3>
-                            <i class="fa-solid fa-star"></i>
-                            Skills
-                        </h3>
-
+                        <h3><i class="fa-solid fa-star"></i> Skills</h3>
+                        <p>ทักษะและความเชี่ยวชาญที่ใช้ในการพัฒนาโครงการ</p>
                         <div class="skills">
-
                             <span class="skill">HTML</span>
                             <span class="skill">CSS</span>
                             <span class="skill">JavaScript</span>
@@ -908,109 +813,57 @@
                             <span class="skill">ESP32</span>
                             <span class="skill">3D Design</span>
                             <span class="skill">Digital Media</span>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- ================= CONTACT ================= -->
 
         <section id="contact">
-
             <div class="container">
-
                 <div class="section-header">
-
                     <h2>ติดต่อฉัน</h2>
-
-                    <p>
-                        หากต้องการพูดคุยหรือสอบถามข้อมูล
-                        สามารถติดต่อได้ผ่านช่องทางด้านล่าง
-                    </p>
-
+                    <p>หากต้องการพูดคุยหรือสอบถามข้อมูล สามารถติดต่อได้ผ่านช่องทางด้านล่าง</p>
                 </div>
-
                 <div class="contact-box">
-
-                    <i class="fa-solid fa-envelope"
-                       style="font-size:3rem;color:var(--primary-color);">
-                    </i>
-
-                    <h2 style="margin-top:15px;">
-                        Let's Connect
-                    </h2>
-
-                    <p>
-                        สามารถเพิ่มช่องทางติดต่อของคุณตรงส่วนนี้ได้
-                    </p>
-
+                    <i class="fa-solid fa-envelope" style="font-size:3rem;color:var(--primary-color);"></i>
+                    <h2 style="margin-top:15px;">Let's Connect</h2>
+                    <p>สามารถเพิ่มช่องทางติดต่อของคุณตรงส่วนนี้ได้</p>
                     <div class="socials">
-
-                        <a href="#" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-
-                        <a href="#" aria-label="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-                        <a href="#" aria-label="Line">
-                            <i class="fa-brands fa-line"></i>
-                        </a>
-
-                        <a href="#" aria-label="Email">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Line"><i class="fa-brands fa-line"></i></a>
+                        <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
     <!-- ================= FOOTER ================= -->
 
     <footer>
-
         <div class="container">
-
             <p>
-                © <span id="year"></span> My Personal Portfolio
-                | Designed with ❤️
+                © <span id="year"></span> My Personal Portfolio | Designed with ❤️
             </p>
-
         </div>
-
     </footer>
-
 
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
-
         // =========================
         // MOBILE MENU
         // =========================
-
         const menuBtn = document.getElementById("menuBtn");
         const navLinks = document.getElementById("navLinks");
 
         menuBtn.addEventListener("click", function () {
-
             navLinks.classList.toggle("active");
-
             const icon = menuBtn.querySelector("i");
-
             if (navLinks.classList.contains("active")) {
                 icon.classList.remove("fa-bars");
                 icon.classList.add("fa-xmark");
@@ -1018,156 +871,58 @@
                 icon.classList.remove("fa-xmark");
                 icon.classList.add("fa-bars");
             }
-
         });
-
 
         // ปิดเมนูเมื่อกดลิงก์
-
         document.querySelectorAll(".nav-links a").forEach(function(link) {
-
             link.addEventListener("click", function() {
-
                 navLinks.classList.remove("active");
-
                 const icon = menuBtn.querySelector("i");
-
                 icon.classList.remove("fa-xmark");
                 icon.classList.add("fa-bars");
-
             });
-
         });
-
 
         // =========================
         // DARK MODE
         // =========================
-
         const themeToggle = document.getElementById("themeToggle");
 
         themeToggle.addEventListener("click", function() {
-
-            const currentTheme =
-                document.documentElement.getAttribute("data-theme");
+            const currentTheme = document.documentElement.getAttribute("data-theme");
 
             if (currentTheme === "dark") {
-
                 document.documentElement.removeAttribute("data-theme");
-
-                themeToggle.innerHTML =
-                    '<i class="fa-solid fa-moon"></i>';
-
+                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
                 localStorage.setItem("theme", "light");
-
             } else {
-
-                document.documentElement.setAttribute(
-                    "data-theme",
-                    "dark"
-                );
-
-                themeToggle.innerHTML =
-                    '<i class="fa-solid fa-sun"></i>';
-
+                document.documentElement.setAttribute("data-theme", "dark");
+                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
                 localStorage.setItem("theme", "dark");
-
             }
-
         });
-
 
         // โหลด Theme ที่บันทึกไว้
-
         const savedTheme = localStorage.getItem("theme");
-
         if (savedTheme === "dark") {
-
-            document.documentElement.setAttribute(
-                "data-theme",
-                "dark"
-            );
-
-            themeToggle.innerHTML =
-                '<i class="fa-solid fa-sun"></i>';
-
+            document.documentElement.setAttribute("data-theme", "dark");
+            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
         }
 
+        // =========================
+        // DYNAMIC YEAR IN FOOTER
+        // =========================
+        document.getElementById("year").textContent = new Date().getFullYear();
 
         // =========================
-        // SCROLL PROGRESS
+        // SCROLL PROGRESS BAR
         // =========================
-
-        window.addEventListener("scroll", function() {
-
-            const scrollTop =
-                window.scrollY;
-
-            const documentHeight =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
-
-            const progress =
-                (scrollTop / documentHeight) * 100;
-
-            document.getElementById("scrollProgress")
-                .style.width = progress + "%";
-
+        window.addEventListener("scroll", () => {
+            const scrollProgress = document.getElementById("scrollProgress");
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progressHeight = (window.scrollY / totalHeight) * 100;
+            scrollProgress.style.width = progressHeight + "%";
         });
-
-
-        // =========================
-        // CURRENT YEAR
-        // =========================
-
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
-
-
-        // =========================
-        // REVEAL ANIMATION
-        // =========================
-
-        const cards =
-            document.querySelectorAll(
-                ".card, .portfolio-card, .about-box, .contact-box"
-            );
-
-        const observer =
-            new IntersectionObserver(
-                function(entries) {
-
-                    entries.forEach(function(entry) {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.style.opacity = "1";
-                            entry.target.style.transform =
-                                "translateY(0)";
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.15
-                }
-            );
-
-
-        cards.forEach(function(card) {
-
-            card.style.opacity = "0";
-            card.style.transform = "translateY(25px)";
-            card.style.transition =
-                "opacity .6s ease, transform .6s ease";
-
-            observer.observe(card);
-
-        });
-
     </script>
-
 </body>
 </html>
