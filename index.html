@@ -189,9 +189,8 @@
             padding: 150px 0 80px;
             display: flex;
             align-items: center;
-            /* ตั้งค่ารูปภาพที่ส่งมาเป็น Background */
             background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url('university-bg.jpg');
-			width: 100%;
+            width: 100%;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -329,8 +328,9 @@
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
+            align-items: stretch;
         }
 
         .card {
@@ -340,6 +340,7 @@
             border-radius: 20px;
             box-shadow: var(--shadow);
             transition: .3s;
+            height: 100%;
         }
 
         .card:hover {
@@ -365,16 +366,32 @@
             margin-bottom: 10px;
         }
 
-        .card p {
+        .card p, .card details {
             color: var(--text-muted);
             font-size: .95rem;
+        }
+
+        .card details summary {
+            cursor: pointer;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .card details ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        .card details li {
+            margin-bottom: 5px;
         }
 
         /* ================= PORTFOLIO ================= */
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
 
@@ -516,7 +533,13 @@
             font-size: .9rem;
         }
 
-        /* ================= MOBILE ================= */
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 992px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
         @media (max-width: 850px) {
             .nav-links {
@@ -567,11 +590,7 @@
                 justify-content: center;
             }
 
-            .grid-3,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .portfolio-grid,
             .about-content {
                 grid-template-columns: 1fr;
             }
@@ -582,6 +601,12 @@
 
             .hero-logo-img {
                 max-width: 220px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -633,8 +658,7 @@
                     <li><a href="#about">ผู้จัดทำ</a></li>
                     <li><a href="#services">คุณสมบัติ</a></li>
                     <li><a href="#portfolio">Virtual Tour</a></li>
-                    <li><a href="#tour"></a></li>
-                    <li><a href="#contact"></a></li>
+                    <li><a href="#contact">ติดต่อ</a></li>
                 </ul>
             </nav>
 
@@ -698,56 +722,51 @@
                 <div class="grid-3">
                     <div class="card">
                         <div class="card-icon">
-                            <i class="fa-solid fa-code"></i>
+                            <i class="fa-solid fa-circle-info"></i>
                         </div>
-                      <div class="card">
-    <div class="card-icon">
-        <i class="fa-solid fa-circle-info"></i>
-    </div>
 
-    <h3>วิธีการใช้งาน</h3>
+                        <h3>วิธีการใช้งาน</h3>
 
-    <details>
-        <summary>คลิกเพื่ออ่านเพิ่มเติม</summary>
-        <ul>
-            <li>เลือก "เริ่มชม Virtual Tour" หรือสถานที่ที่ต้องการ</li>
-            <li>ลากเมาส์หรือลากนิ้วเพื่อชมภาพ 360°</li>
-            <li>ซูมเข้า-ออกด้วยเมาส์หรือหน้าจอสัมผัส</li>
-            <li>คลิก Transit Tag เพื่อเปลี่ยนสถานที่</li>
-            <li>คลิก Text & Media Tag เพื่อดูข้อมูลเพิ่มเติม</li>
-        </ul>
-    </details>
-</div>
+                        <details>
+                            <summary>คลิกเพื่ออ่านเพิ่มเติม</summary>
+                            <ul>
+                                <li>เลือก "เริ่มชม Virtual Tour" หรือสถานที่ที่ต้องการ</li>
+                                <li>ลากเมาส์หรือลากนิ้วเพื่อชมภาพ 360°</li>
+                                <li>ซูมเข้า-ออกด้วยเมาส์หรือหน้าจอสัมผัส</li>
+                                <li>คลิก Transit Tag เพื่อเปลี่ยนสถานที่</li>
+                                <li>คลิก Text & Media Tag เพื่อดูข้อมูลเพิ่มเติม</li>
+                            </ul>
+                        </details>
+                    </div>
 
-<div class="card">
-    <div class="card-icon">
-        <i class="fa-solid fa-lightbulb"></i>
-    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
 
-    <h3>ประโยชน์ของเว็บไซต์</h3>
+                        <h3>ประโยชน์ของเว็บไซต์</h3>
 
-    <details>
-        <summary>คลิกเพื่ออ่านเพิ่มเติม</summary>
-        <ul>
-            <li>สำรวจมหาวิทยาลัยผ่านภาพ 360°</li>
-            <li>ค้นหาอาคารและเส้นทางได้ง่าย</li>
-            <li>เหมาะสำหรับนักศึกษาใหม่และผู้เยี่ยมชม</li>
-            <li>ใช้งานได้ทุกที่ผ่านอินเทอร์เน็ต</li>
-        </ul>
-    </details>
-</div>
+                        <details>
+                            <summary>คลิกเพื่ออ่านเพิ่มเติม</summary>
+                            <ul>
+                                <li>สำรวจมหาวิทยาลัยผ่านภาพ 360°</li>
+                                <li>ค้นหาอาคารและเส้นทางได้ง่าย</li>
+                                <li>เหมาะสำหรับนักศึกษาใหม่และผู้เยี่ยมชม</li>
+                                <li>ใช้งานได้ทุกที่ผ่านอินเทอร์เน็ต</li>
+                            </ul>
+                        </details>
+                    </div>
 
-<div class="card">
-    <div class="card-icon">
-        <i class="fa-solid fa-mobile-screen"></i>
-    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
 
-    <h3>รองรับทุกอุปกรณ์</h3>
+                        <h3>รองรับทุกอุปกรณ์</h3>
 
-    <p>
-        ใช้งานได้ทั้งคอมพิวเตอร์ แท็บเล็ต และสมาร์ตโฟน
-    </p>
-</div>
+                        <p>
+                            ใช้งานได้ทั้งคอมพิวเตอร์ แท็บเล็ต และสมาร์ตโฟน
+                        </p>
                     </div>
                 </div>
             </div>
@@ -755,26 +774,26 @@
 
         <!-- ================= PORTFOLIO ================= -->
 
-      <section id="portfolio">  
-	<div style="display: flex; justify-content: center; width: 100%;">
-   		<iframe
-       			width="960"
-        		height="540"
-        		data-original-width="1920"
-        		data-original-height="1080"
-        		src="https://www.thinglink.com/view/scene/2157062321090855780"
-        		title="Sisaket Rajabhat University"
-        		type="text/html"
-       			style="border: none; max-width: 100%;"
-        		webkitallowfullscreen
-        		mozallowfullscreen
-        		allowfullscreen
-        		scrolling="no">
-    		</iframe>
-	</div>
-            </section>
+        <section id="portfolio">  
+            <div style="display: flex; justify-content: center; width: 100%;">
+                <iframe
+                    width="960"
+                    height="540"
+                    data-original-width="1920"
+                    data-original-height="1080"
+                    src="https://www.thinglink.com/view/scene/2157062321090855780"
+                    title="Sisaket Rajabhat University"
+                    type="text/html"
+                    style="border: none; max-width: 100%;"
+                    webkitallowfullscreen
+                    mozallowfullscreen
+                    allowfullscreen
+                    scrolling="no">
+                </iframe>
+            </div>
+        </section>
 
-<script async src="//cdn.thinglink.me/jse/responsive.js"></script>
+        <script async src="//cdn.thinglink.me/jse/responsive.js"></script>
 
         <!-- ================= ABOUT ================= -->
 
