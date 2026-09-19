@@ -336,7 +336,7 @@
             border-radius: 2px;
         }
  
-        /* ================= SERVICES (SERVICES SECTION SPECIFIC) ================= */
+        /* ================= SERVICES ================= */
  
         .grid-3 {
             display: grid;
@@ -364,7 +364,6 @@
             box-shadow: var(--shadow-hover);
         }
  
-        /* โครงสร้างส่วนบนการ์ด (ไอคอน + ชื่อ) */
         .card-header-flex {
             display: flex;
             align-items: center;
@@ -383,7 +382,6 @@
             flex-shrink: 0;
         }
  
-        /* ไล่สีไอคอนแต่ละใบแบบในรูป */
         .card-icon-blue {
             background: linear-gradient(135deg, #1d4ed8, #3b82f6);
             color: #ffffff;
@@ -409,7 +407,6 @@
             font-weight: 400;
         }
  
-        /* เส้นใต้เล็กๆ ในการ์ด */
         .card-divider {
             width: 28px;
             height: 3px;
@@ -431,7 +428,6 @@
             line-height: 1.6;
         }
  
-        /* สไตล์ปุ่มกด "อ่านเพิ่มเติม ->" */
         .card-btn {
             display: inline-flex;
             align-items: center;
@@ -470,13 +466,12 @@
             color: #ffffff;
         }
  
-        /* Details / Summary Dropdown Modal */
         .card details {
             margin-top: 10px;
         }
  
         .card details summary {
-            display: none; /* ซ่อนหัวข้อกดขยายถ้าใช้ปุ่มหลัก */
+            display: none;
         }
  
         .details-content {
@@ -569,13 +564,15 @@
  
         .contact-box p {
             color: var(--text-muted);
-            margin: 15px 0 25px;
+            margin: 10px 0;
         }
- 
+
+        /* Social Icons */
         .socials {
             display: flex;
             justify-content: center;
             gap: 15px;
+            margin-top: 25px;
         }
  
         .socials a {
@@ -596,6 +593,33 @@
             background: var(--primary-color);
             border-color: var(--primary-color);
             transform: translateY(-4px);
+        }
+
+        /* Contact Buttons Links */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .contact-links a:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
         }
  
         /* ================= FOOTER ================= */
@@ -956,25 +980,25 @@
                             <span class="skill">Web Development</span>
                         </div>
                     </div>
-                   <div class="about-box">
-    <h2>เทคโนโลยีที่ใช้ในการพัฒนา</h2>
+                    <div class="about-box">
+                        <h2>เทคโนโลยีที่ใช้ในการพัฒนา</h2>
 
-    <div class="skills">
-        <span class="skill">Insta360 X4</span>
-        <span class="skill">Insta360 Studio</span>
-        <span class="skill">Adobe Photoshop</span>
-        <span class="skill">ThingLink</span>
-        <span class="skill">HTML5</span>
-        <span class="skill">CSS3</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">GitHub Pages</span>
-    </div>
+                        <div class="skills">
+                            <span class="skill">Insta360 X4</span>
+                            <span class="skill">Insta360 Studio</span>
+                            <span class="skill">Adobe Photoshop</span>
+                            <span class="skill">ThingLink</span>
+                            <span class="skill">HTML5</span>
+                            <span class="skill">CSS3</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">GitHub Pages</span>
+                        </div>
 
-    <p style="margin-top:20px;">
-        ใช้สำหรับการถ่ายภาพ 360 องศา การปรับแต่งภาพ การพัฒนาหน้าเว็บไซต์
-        และการเผยแพร่สื่อทัวร์เสมือนจริงผ่านระบบออนไลน์
-    </p>
-</div>
+                        <p style="margin-top:20px;">
+                            ใช้สำหรับการถ่ายภาพ 360 องศา การปรับแต่งภาพ การพัฒนาหน้าเว็บไซต์
+                            และการเผยแพร่สื่อทัวร์เสมือนจริงผ่านระบบออนไลน์
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -984,17 +1008,45 @@
         <section id="contact">
             <div class="container">
                 <div class="contact-box">
-                  <h2>ติดต่อเรา</h2>
+                    <h2>ติดต่อเรา</h2>
+                    <p><strong>มหาวิทยาลัยราชภัฏศรีสะเกษ</strong></p>
+                    <p>เลขที่ 319 หมู่ 8 ตำบลโพธิ์ อำเภอเมืองศรีสะเกษ จังหวัดศรีสะเกษ 33000</p>
+                    <p>โทรศัพท์ : 045-617-677</p>
 
-<p>มหาวิทยาลัยราชภัฏศรีสะเกษ</p>
+                    <!-- ปุ่มข้อความ (เหมาะกับหน้าจอมือถือ กดง่าย) -->
+                    <div class="contact-links">
+                        <a href="https://www.facebook.com/sskruconnect?locale=th_TH" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i> Facebook มหาวิทยาลัย
+                        </a>
+                        <a href="https://www.sskru.ac.th/" target="_blank">
+                            <i class="fa-solid fa-globe"></i> เว็บไซต์มหาวิทยาลัย
+                        </a>
+                        <a href="mailto:webmaster@sskru.ac.th">
+                            <i class="fa-solid fa-envelope"></i> ส่งอีเมล
+                        </a>
+                    </div>
 
-<p>เลขที่ 319 หมู่ 8 ตำบลโพธิ์ อำเภอเมืองศรีสะเกษ จังหวัดศรีสะเกษ 33000</p>
+                    <!-- ไอคอนโซเชียลมีเดีย -->
+                    <div class="socials">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/sskruconnect?locale=th_TH"
+                           target="_blank"
+                           aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
 
-<p>เว็บไซต์ : https://www.sskru.ac.th</p>
+                        <!-- Website -->
+                        <a href="https://www.sskru.ac.th/"
+                           target="_blank"
+                           aria-label="Website">
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
 
-<p>อีเมล : webmaster@sskru.ac.th</p>
-
-<p>โทรศัพท์ : 045-617-677</p>
+                        <!-- Email -->
+                        <a href="mailto:webmaster@sskru.ac.th"
+                           aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1005,57 +1057,53 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Virtual Tour 360° มหาวิทยาลัยราชภัฏศรีสะเกษ. All Rights Reserved.</p>
+            <p>&copy; 2026 SSKRU Virtual Tour 360°. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript Functions -->
+    <!-- JavaScript สำหรับระบบเปลี่ยนธีม Toggle และ Scroll Progress -->
     <script>
-        // Toggle Nav Menu on Mobile
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close Mobile Nav Menu on Link Click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Toggle Details Function
+        // Toggle details
         function toggleDetails(id) {
-            const detailsElement = document.getElementById(id);
-            if (detailsElement) {
-                detailsElement.open = !detailsElement.open;
+            const details = document.getElementById(id);
+            if (details) {
+                details.open = !details.open;
             }
         }
 
-        // Toggle Dark/Light Theme
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'light') {
-                document.documentElement.removeAttribute('data-theme');
-                themeIcon.className = 'fa-solid fa-sun';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                themeIcon.className = 'fa-solid fa-moon';
-            }
-        });
-
         // Scroll Progress Bar
-        window.addEventListener('scroll', () => {
+        window.onscroll = function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
-        });
+            document.getElementById("scrollProgress").style.width = scrolled + "%";
+        };
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Dark/Light Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                
+                const icon = themeToggle.querySelector('i');
+                if (newTheme === 'light') {
+                    icon.className = 'fa-solid fa-moon';
+                } else {
+                    icon.className = 'fa-solid fa-sun';
+                }
+            });
+        }
     </script>
 </body>
 </html>
