@@ -18,29 +18,29 @@
             --primary-color: #c59d2f;
             --primary-hover: #a88420;
             --primary-light: rgba(197,157,47,.15);
-            --bg-color: #fffdf7;
-            --card-bg: #ffffff;
-            --border-color: #f2e3ad;
-            --text-color: #1e293b;
-            --text-muted: #64748b;
-            --nav-bg: rgba(255, 253, 247, 0.85);
-            --shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            --shadow-hover: 0 20px 25px -5px rgba(197,157,47,0.25);
+            --bg-color: #0b1329; /* โทนน้ำเงินเข้มตามรูปภาพ */
+            --card-bg: rgba(18, 28, 56, 0.85); /* สีพื้นหลังการ์ด */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --text-muted: #94a3b8;
+            --nav-bg: rgba(11, 19, 41, 0.85);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.5);
             --transition: all 0.3s ease;
         }
 
-        [data-theme="dark"] {
-            --primary-color: #3b82f6;
-            --primary-hover: #60a5fa;
-            --primary-light: rgba(59,130,246,.15);
-            --bg-color: #0f172a;
-            --card-bg: rgba(30,41,59,.9);
-            --text-color: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
-            --nav-bg: rgba(15,23,42,.85);
-            --shadow: 0 20px 25px -5px rgba(0,0,0,.3);
-            --shadow-hover: 0 25px 30px -5px rgba(59,130,246,.25);
+        [data-theme="light"] {
+            --primary-color: #c59d2f;
+            --primary-hover: #a88420;
+            --primary-light: rgba(197,157,47,.15);
+            --bg-color: #fffdf7;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #f2e3ad;
+            --nav-bg: rgba(255, 253, 247, 0.85);
+            --shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 25px -5px rgba(197,157,47,0.25);
         }
 
         * {
@@ -63,7 +63,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: auto;
             padding: 0 24px;
         }
@@ -75,7 +75,7 @@
             left: 0;
             height: 4px;
             width: 0%;
-            background: linear-gradient(to right,#2563eb,#8b5cf6);
+            background: linear-gradient(to right, #2563eb, #fbbf24);
             z-index: 2000;
             transition: width 0.1s ease;
         }
@@ -189,7 +189,7 @@
             padding: 150px 0 80px;
             display: flex;
             align-items: center;
-            background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url('university-bg.jpg');
+            background-image: linear-gradient(rgba(11, 19, 41, 0.8), rgba(11, 19, 41, 0.8)), url('university-bg.jpg');
             width: 100%;
             background-size: cover;
             background-position: center;
@@ -214,11 +214,12 @@
             display: inline-block;
             padding: 7px 15px;
             border-radius: 30px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             color: #ffffff;
             font-size: .9rem;
             margin-bottom: 20px;
             backdrop-filter: blur(5px);
+            border: 1px solid var(--border-color);
         }
 
         .hero-text h1 {
@@ -226,21 +227,19 @@
             line-height: 1.25;
             margin-bottom: 20px;
             color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero-text h1 span {
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            background: linear-gradient(135deg, #60a5fa, #fbbf24);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-text p {
-            color: #f1f5f9;
+            color: #94a3b8;
             font-size: 1.1rem;
             max-width: 600px;
             margin-bottom: 30px;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
         }
 
         .btn-group {
@@ -271,15 +270,15 @@
         }
 
         .btn-secondary {
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid var(--border-color);
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(5px);
         }
 
         .btn-secondary:hover {
             border-color: #ffffff;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.15);
             color: #ffffff;
             transform: translateY(-3px);
         }
@@ -317,14 +316,27 @@
 
         .section-header h2 {
             font-size: 2.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .section-header p {
             color: var(--text-muted);
+            font-size: 1rem;
         }
 
-        /* ================= CARDS ================= */
+        /* ขีดสีเหลืองใต้หัวข้อหลัก */
+        .section-header::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #fbbf24;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ================= SERVICES (SERVICES SECTION SPECIFIC) ================= */
 
         .grid-3 {
             display: grid;
@@ -336,55 +348,151 @@
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 20px;
+            padding: 35px 28px;
+            border-radius: 16px;
             box-shadow: var(--shadow);
-            transition: .3s;
-            height: 100%;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-color);
+            transform: translateY(-6px);
+            border-color: rgba(96, 165, 250, 0.4);
             box-shadow: var(--shadow-hover);
         }
 
+        /* โครงสร้างส่วนบนการ์ด (ไอคอน + ชื่อ) */
+        .card-header-flex {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
         .card-icon {
-            width: 58px;
-            height: 58px;
+            width: 54px;
+            height: 54px;
             border-radius: 14px;
-            background: var(--primary-light);
-            color: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.35rem;
+            flex-shrink: 0;
         }
 
-        .card h3 {
-            margin-bottom: 10px;
+        /* ไล่สีไอคอนแต่ละใบแบบในรูป */
+        .card-icon-blue {
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
-        .card p, .card details {
-            color: var(--text-muted);
-            font-size: .95rem;
+        .card-icon-yellow {
+            background: linear-gradient(135deg, #d97706, #fbbf24);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+        }
+
+        .card-title-group h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+
+        .card-subtitle {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        /* เส้นใต้เล็กๆ ในการ์ด */
+        .card-divider {
+            width: 28px;
+            height: 3px;
+            border-radius: 2px;
+            margin: 10px 0 18px 0;
+        }
+
+        .card-divider-blue { background: #3b82f6; }
+        .card-divider-yellow { background: #fbbf24; }
+
+        .card-body {
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+
+        .card-body p {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* สไตล์ปุ่มกด "อ่านเพิ่มเติม ->" */
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            width: fit-content;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            background: transparent;
+        }
+
+        .card-btn-blue {
+            color: #60a5fa;
+            border-color: #2563eb;
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .card-btn-blue:hover {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        .card-btn-yellow {
+            color: #fbbf24;
+            border-color: #d97706;
+            background: rgba(217, 119, 6, 0.1);
+        }
+
+        .card-btn-yellow:hover {
+            background: #d97706;
+            color: #ffffff;
+        }
+
+        /* Details / Summary Dropdown Modal */
+        .card details {
+            margin-top: 10px;
         }
 
         .card details summary {
-            cursor: pointer;
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 10px;
+            display: none; /* ซ่อนหัวข้อกดขยายถ้าใช้ปุ่มหลัก */
         }
 
-        .card details ul {
-            padding-left: 20px;
-            margin-top: 8px;
+        .details-content {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.88rem;
         }
 
-        .card details li {
-            margin-bottom: 5px;
+        .details-content ul {
+            padding-left: 18px;
+        }
+
+        .details-content li {
+            margin-bottom: 6px;
         }
 
         /* ================= PORTFOLIO ================= */
@@ -407,39 +515,6 @@
         .portfolio-card:hover {
             transform: translateY(-7px);
             box-shadow: var(--shadow-hover);
-        }
-
-        .portfolio-image {
-            height: 210px;
-            background: linear-gradient(135deg,#2563eb,#8b5cf6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 4rem;
-        }
-
-        .portfolio-info {
-            padding: 23px;
-        }
-
-        .portfolio-info h3 {
-            margin-bottom: 8px;
-        }
-
-        .portfolio-info p {
-            color: var(--text-muted);
-            font-size: .9rem;
-        }
-
-        .portfolio-tag {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 5px 11px;
-            border-radius: 20px;
-            background: var(--primary-light);
-            color: var(--primary-color);
-            font-size: .8rem;
         }
 
         /* ================= ABOUT ================= */
@@ -537,7 +612,8 @@
 
         @media (max-width: 992px) {
             .grid-3 {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
             }
         }
 
@@ -590,7 +666,6 @@
                 justify-content: center;
             }
 
-            .portfolio-grid,
             .about-content {
                 grid-template-columns: 1fr;
             }
@@ -664,7 +739,7 @@
 
             <div class="nav-actions">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-                    <i class="fa-solid fa-moon"></i>
+                    <i class="fa-solid fa-sun"></i>
                 </button>
 
                 <button class="menu-btn" id="menuBtn" aria-label="Menu">
@@ -719,54 +794,110 @@
                     <h2>คุณสมบัติของระบบ</h2>
                     <p>จุดเด่นของสื่อ Virtual Tour 360 องศา</p>
                 </div>
+
                 <div class="grid-3">
+                    <!-- Card 1: วิธีการใช้งาน -->
                     <div class="card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-circle-info"></i>
+                        <div class="card-header-flex">
+                            <div class="card-icon card-icon-blue">
+                                <i class="fa-solid fa-info"></i>
+                            </div>
+                            <div class="card-title-group">
+                                <h3>วิธีการใช้งาน</h3>
+                                <span class="card-subtitle">Virtual Tour 360 องศา</span>
+                            </div>
                         </div>
 
-                        <h3>วิธีการใช้งาน</h3>
+                        <div class="card-divider card-divider-blue"></div>
 
-                        <details>
-                            <summary>คลิกเพื่ออ่านเพิ่มเติม</summary>
-                            <ul>
-                                <li>เลือก "เริ่มชม Virtual Tour" หรือสถานที่ที่ต้องการ</li>
-                                <li>ลากเมาส์หรือลากนิ้วเพื่อชมภาพ 360°</li>
-                                <li>ซูมเข้า-ออกด้วยเมาส์หรือหน้าจอสัมผัส</li>
-                                <li>คลิก Transit Tag เพื่อเปลี่ยนสถานที่</li>
-                                <li>คลิก Text & Media Tag เพื่อดูข้อมูลเพิ่มเติม</li>
-                            </ul>
-                        </details>
+                        <div class="card-body">
+                            <p>
+                                คลิก "เริ่มชม Virtual Tour" หรือเลือกสถานที่ที่ต้องการ จากนั้นลากเมาส์/นิ้ว ซูมเข้า-ออก และใช้ Transit Tag / Text & Media Tag เพื่อดูข้อมูลเพิ่มเติม
+                            </p>
+                            <details id="details-1">
+                                <summary></summary>
+                                <div class="details-content">
+                                    <ul>
+                                        <li>เลือกสถานที่ตั้งต้นบนแผนที่</li>
+                                        <li>ลากเพื่อดูมุมมองแบบ panoramic</li>
+                                        <li>กดปุ่มไอคอนเพื่อเปิดดูสื่อมัลติมีเดีย</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+
+                        <button class="card-btn card-btn-blue" onclick="toggleDetails('details-1')">
+                            อ่านเพิ่มเติม <i class="fa-solid fa-arrow-right"></i>
+                        </button>
                     </div>
 
+                    <!-- Card 2: ประโยชน์ของเว็บไซต์ -->
                     <div class="card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-lightbulb"></i>
+                        <div class="card-header-flex">
+                            <div class="card-icon card-icon-yellow">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <div class="card-title-group">
+                                <h3>ประโยชน์ของเว็บไซต์</h3>
+                                <span class="card-subtitle">Virtual Tour 360 องศา</span>
+                            </div>
                         </div>
 
-                        <h3>ประโยชน์ของเว็บไซต์</h3>
+                        <div class="card-divider card-divider-yellow"></div>
 
-                        <details>
-                            <summary>คลิกเพื่ออ่านเพิ่มเติม</summary>
-                            <ul>
-                                <li>สำรวจมหาวิทยาลัยผ่านภาพ 360°</li>
-                                <li>ค้นหาอาคารและเส้นทางได้ง่าย</li>
-                                <li>เหมาะสำหรับนักศึกษาใหม่และผู้เยี่ยมชม</li>
-                                <li>ใช้งานได้ทุกที่ผ่านอินเทอร์เน็ต</li>
-                            </ul>
-                        </details>
+                        <div class="card-body">
+                            <p>
+                                ช่วยให้สำรวจสถานที่ภายในมหาวิทยาลัย ได้เสมือนจริง ค้นหาอาคารและเส้นทางได้ง่าย เหมาะสำหรับนักศึกษาใหม่ ผู้ปกครอง และผู้ที่สนใจ และ ใช้งานได้ทุกที่ทุกเวลา ผ่านอินเทอร์เน็ต
+                            </p>
+                            <details id="details-2">
+                                <summary></summary>
+                                <div class="details-content">
+                                    <ul>
+                                        <li>ประหยัดเวลาในการวางแผนการเดินทาง</li>
+                                        <li>ให้ข้อมูลอาคารเรียนและจุดบริการครบถ้วน</li>
+                                        <li>ใช้งานสะดวกได้จากทุกสถานที่ทั่วโลก</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+
+                        <button class="card-btn card-btn-yellow" onclick="toggleDetails('details-2')">
+                            อ่านเพิ่มเติม <i class="fa-solid fa-arrow-right"></i>
+                        </button>
                     </div>
 
+                    <!-- Card 3: รองรับทุกอุปกรณ์ -->
                     <div class="card">
-                        <div class="card-icon">
-                            <i class="fa-solid fa-mobile-screen"></i>
+                        <div class="card-header-flex">
+                            <div class="card-icon card-icon-blue">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <div class="card-title-group">
+                                <h3>รองรับทุกอุปกรณ์</h3>
+                                <span class="card-subtitle">Virtual Tour 360 องศา</span>
+                            </div>
                         </div>
 
-                        <h3>รองรับทุกอุปกรณ์</h3>
+                        <div class="card-divider card-divider-blue"></div>
 
-                        <p>
-                            ใช้งานได้ทั้งคอมพิวเตอร์ แท็บเล็ต และสมาร์ตโฟน
-                        </p>
+                        <div class="card-body">
+                            <p>
+                                สามารถใช้งานผ่านคอมพิวเตอร์ แท็บเล็ต และสมาร์ตโฟน
+                            </p>
+                            <details id="details-3">
+                                <summary></summary>
+                                <div class="details-content">
+                                    <ul>
+                                        <li>รองรับ iOS, Android, Windows, macOS</li>
+                                        <li>แสดงผลสวยงามบนทุกขนาดหน้าจอ (Responsive)</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+
+                        <button class="card-btn card-btn-blue" onclick="toggleDetails('details-3')">
+                            อ่านเพิ่มเติม <i class="fa-solid fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -865,6 +996,14 @@
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
+        // TOGGLE DETAILS EXPAND
+        function toggleDetails(id) {
+            const detailsElem = document.getElementById(id);
+            if (detailsElem) {
+                detailsElem.open = !detailsElem.open;
+            }
+        }
+
         // MOBILE MENU
         const menuBtn = document.getElementById("menuBtn");
         const navLinks = document.getElementById("navLinks");
@@ -890,28 +1029,22 @@
             });
         });
 
-        // DARK MODE
+        // DARK MODE TOGGLE
         const themeToggle = document.getElementById("themeToggle");
 
         themeToggle.addEventListener("click", function() {
             const currentTheme = document.documentElement.getAttribute("data-theme");
 
-            if (currentTheme === "dark") {
+            if (currentTheme === "light") {
                 document.documentElement.removeAttribute("data-theme");
-                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-                localStorage.setItem("theme", "light");
-            } else {
-                document.documentElement.setAttribute("data-theme", "dark");
                 themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
                 localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                localStorage.setItem("theme", "light");
             }
         });
-
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-            document.documentElement.setAttribute("data-theme", "dark");
-            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        }
 
         // DYNAMIC YEAR
         document.getElementById("year").textContent = new Date().getFullYear();
