@@ -368,7 +368,6 @@
             margin-bottom: 12px;
         }
  
-        /* ปุ่มไอคอนทรงกลมสำหรับกดคลิก */
         .card-icon-btn {
             width: 70px;
             height: 70px;
@@ -548,8 +547,9 @@
         }
  
         .socials a {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
             border-radius: 50%;
             border: 1px solid var(--border-color);
             display: flex;
@@ -558,6 +558,7 @@
             color: var(--text-color);
             text-decoration: none;
             transition: .3s;
+            background: rgba(255, 255, 255, 0.05);
         }
  
         .socials a:hover {
@@ -565,32 +566,6 @@
             background: var(--primary-color);
             border-color: var(--primary-color);
             transform: translateY(-4px);
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .contact-links a {
-            display: inline-block;
-            padding: 12px 20px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .contact-links a:hover {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
-            color: #ffffff;
-            transform: translateY(-2px);
         }
  
         /* ================= FOOTER ================= */
@@ -964,33 +939,25 @@
                     <p>เลขที่ 319 หมู่ 8 ตำบลโพธิ์ อำเภอเมืองศรีสะเกษ จังหวัดศรีสะเกษ 33000</p>
                     <p>โทรศัพท์ : 045-617-677</p>
 
-                    <div class="contact-links">
-                        <a href="https://www.facebook.com/sskruconnect?locale=th_TH" target="_blank">
-                            <i class="fa-brands fa-facebook-f"></i> Facebook มหาวิทยาลัย
-                        </a>
-                        <a href="https://www.sskru.ac.th/" target="_blank">
-                            <i class="fa-solid fa-globe"></i> เว็บไซต์มหาวิทยาลัย
-                        </a>
-                        <a href="mailto:webmaster@sskru.ac.th">
-                            <i class="fa-solid fa-envelope"></i> ส่งอีเมล
-                        </a>
-                    </div>
-
+                    <!-- ไอคอนโซเชียลมีเดียทรงกลมสำหรับกดไปยังลิงก์ติดต่อ -->
                     <div class="socials">
                         <a href="https://www.facebook.com/sskruconnect?locale=th_TH"
                            target="_blank"
-                           aria-label="Facebook">
+                           aria-label="Facebook"
+                           title="Facebook มหาวิทยาลัย">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
 
                         <a href="https://www.sskru.ac.th/"
                            target="_blank"
-                           aria-label="Website">
+                           aria-label="Website"
+                           title="เว็บไซต์มหาวิทยาลัย">
                             <i class="fa-solid fa-globe"></i>
                         </a>
 
                         <a href="mailto:webmaster@sskru.ac.th"
-                           aria-label="Email">
+                           aria-label="Email"
+                           title="ส่งอีเมล">
                             <i class="fa-solid fa-envelope"></i>
                         </a>
                     </div>
