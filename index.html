@@ -18,8 +18,8 @@
             --primary-color: #c59d2f;
             --primary-hover: #a88420;
             --primary-light: rgba(197,157,47,.15);
-            --bg-color: #0b1329; /* โทนน้ำเงินเข้มตามรูปภาพ */
-            --card-bg: rgba(18, 28, 56, 0.85); /* สีพื้นหลังการ์ด */
+            --bg-color: #0b1329;
+            --card-bg: rgba(18, 28, 56, 0.85);
             --border-color: rgba(255, 255, 255, 0.1);
             --text-color: #ffffff;
             --text-muted: #94a3b8;
@@ -81,7 +81,6 @@
         }
  
         /* ================= HEADER ================= */
- 
         header {
             position: fixed;
             top: 0;
@@ -183,7 +182,6 @@
         }
  
         /* ================= HERO ================= */
- 
         .hero {
             min-height: 100vh;
             padding: 150px 0 80px;
@@ -304,7 +302,6 @@
         }
  
         /* ================= SECTIONS ================= */
- 
         section {
             padding: 90px 0;
         }
@@ -325,7 +322,6 @@
             font-size: 1rem;
         }
  
-        /* ขีดสีเหลืองใต้หัวข้อหลัก */
         .section-header::after {
             content: "";
             display: block;
@@ -337,7 +333,6 @@
         }
  
         /* ================= SERVICES ================= */
- 
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -366,32 +361,50 @@
  
         .card-header-flex {
             display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
             gap: 16px;
             margin-bottom: 12px;
         }
  
-        .card-icon {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
+        /* ปุ่มไอคอนทรงกลมสำหรับกดคลิก */
+        .card-icon-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.35rem;
-            flex-shrink: 0;
+            font-size: 1.6rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-icon-btn:hover {
+            transform: scale(1.1);
         }
  
         .card-icon-blue {
             background: linear-gradient(135deg, #1d4ed8, #3b82f6);
             color: #ffffff;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+        
+        .card-icon-blue:hover {
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
         }
  
         .card-icon-yellow {
             background: linear-gradient(135deg, #d97706, #fbbf24);
             color: #ffffff;
-            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+        }
+
+        .card-icon-yellow:hover {
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
         }
  
         .card-title-group h3 {
@@ -408,10 +421,10 @@
         }
  
         .card-divider {
-            width: 28px;
+            width: 40px;
             height: 3px;
             border-radius: 2px;
-            margin: 10px 0 18px 0;
+            margin: 12px auto 18px auto;
         }
  
         .card-divider-blue { background: #3b82f6; }
@@ -419,51 +432,13 @@
  
         .card-body {
             flex-grow: 1;
-            margin-bottom: 25px;
+            text-align: center;
         }
  
         .card-body p {
             color: #94a3b8;
             font-size: 0.92rem;
             line-height: 1.6;
-        }
- 
-        .card-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.88rem;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            width: fit-content;
-            transition: var(--transition);
-            border: 1px solid transparent;
-            background: transparent;
-        }
- 
-        .card-btn-blue {
-            color: #60a5fa;
-            border-color: #2563eb;
-            background: rgba(37, 99, 235, 0.1);
-        }
- 
-        .card-btn-blue:hover {
-            background: #2563eb;
-            color: #ffffff;
-        }
- 
-        .card-btn-yellow {
-            color: #fbbf24;
-            border-color: #d97706;
-            background: rgba(217, 119, 6, 0.1);
-        }
- 
-        .card-btn-yellow:hover {
-            background: #d97706;
-            color: #ffffff;
         }
  
         .card details {
@@ -475,11 +450,12 @@
         }
  
         .details-content {
-            margin-top: 12px;
-            padding-top: 12px;
+            margin-top: 15px;
+            padding-top: 15px;
             border-top: 1px dashed rgba(255, 255, 255, 0.1);
             color: #94a3b8;
             font-size: 0.88rem;
+            text-align: left;
         }
  
         .details-content ul {
@@ -491,7 +467,6 @@
         }
  
         /* ================= PORTFOLIO ================= */
- 
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -513,7 +488,6 @@
         }
  
         /* ================= ABOUT ================= */
- 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -550,7 +524,6 @@
         }
  
         /* ================= CONTACT ================= */
- 
         .contact-box {
             max-width: 700px;
             margin: auto;
@@ -567,7 +540,6 @@
             margin: 10px 0;
         }
 
-        /* Social Icons */
         .socials {
             display: flex;
             justify-content: center;
@@ -595,7 +567,6 @@
             transform: translateY(-4px);
         }
 
-        /* Contact Buttons Links */
         .contact-links {
             display: flex;
             flex-direction: column;
@@ -623,7 +594,6 @@
         }
  
         /* ================= FOOTER ================= */
- 
         footer {
             border-top: 1px solid var(--border-color);
             padding: 30px 0;
@@ -633,7 +603,6 @@
         }
  
         /* ================= RESPONSIVE ================= */
- 
         @media (max-width: 992px) {
             .grid-3 {
                 grid-template-columns: repeat(3, 1fr);
@@ -743,7 +712,6 @@
     <div class="scroll-progress" id="scrollProgress"></div>
  
     <!-- ================= HEADER ================= -->
- 
     <header>
         <div class="container nav-container">
             <a href="#home" class="logo">
@@ -774,7 +742,6 @@
     </header>
  
     <!-- ================= HERO ================= -->
- 
     <main>
         <section class="hero" id="home">
             <div class="container">
@@ -811,21 +778,20 @@
         </section>
  
         <!-- ================= SERVICES ================= -->
- 
         <section id="services">
             <div class="container">
                 <div class="section-header">
                     <h2>คุณสมบัติของระบบ</h2>
-                    <p>จุดเด่นของสื่อ Virtual Tour 360 องศา</p>
+                    <p>จุดเด่นของสื่อ Virtual Tour 360 องศา (กดที่ไอคอนทรงกลมเพื่อดูรายละเอียดเพิ่มเติม)</p>
                 </div>
  
                 <div class="grid-3">
                     <!-- Card 1: วิธีการใช้งาน -->
                     <div class="card">
                         <div class="card-header-flex">
-                            <div class="card-icon card-icon-blue">
+                            <button class="card-icon-btn card-icon-blue" onclick="toggleDetails('details-1')" title="คลิกเพื่ออ่านเพิ่มเติม">
                                 <i class="fa-solid fa-info"></i>
-                            </div>
+                            </button>
                             <div class="card-title-group">
                                 <h3>วิธีการใช้งาน</h3>
                                 <span class="card-subtitle">Virtual Tour 360 องศา</span>
@@ -849,18 +815,14 @@
                                 </div>
                             </details>
                         </div>
- 
-                        <button class="card-btn card-btn-blue" onclick="toggleDetails('details-1')">
-                            อ่านเพิ่มเติม <i class="fa-solid fa-arrow-right"></i>
-                        </button>
                     </div>
  
                     <!-- Card 2: ประโยชน์ของเว็บไซต์ -->
                     <div class="card">
                         <div class="card-header-flex">
-                            <div class="card-icon card-icon-yellow">
+                            <button class="card-icon-btn card-icon-yellow" onclick="toggleDetails('details-2')" title="คลิกเพื่ออ่านเพิ่มเติม">
                                 <i class="fa-solid fa-lightbulb"></i>
-                            </div>
+                            </button>
                             <div class="card-title-group">
                                 <h3>ประโยชน์ของเว็บไซต์</h3>
                                 <span class="card-subtitle">Virtual Tour 360 องศา</span>
@@ -884,18 +846,14 @@
                                 </div>
                             </details>
                         </div>
- 
-                        <button class="card-btn card-btn-yellow" onclick="toggleDetails('details-2')">
-                            อ่านเพิ่มเติม <i class="fa-solid fa-arrow-right"></i>
-                        </button>
                     </div>
  
                     <!-- Card 3: รองรับทุกอุปกรณ์ -->
                     <div class="card">
                         <div class="card-header-flex">
-                            <div class="card-icon card-icon-blue">
+                            <button class="card-icon-btn card-icon-blue" onclick="toggleDetails('details-3')" title="คลิกเพื่ออ่านเพิ่มเติม">
                                 <i class="fa-solid fa-mobile-screen"></i>
-                            </div>
+                            </button>
                             <div class="card-title-group">
                                 <h3>รองรับทุกอุปกรณ์</h3>
                                 <span class="card-subtitle">Virtual Tour 360 องศา</span>
@@ -918,17 +876,12 @@
                                 </div>
                             </details>
                         </div>
- 
-                        <button class="card-btn card-btn-blue" onclick="toggleDetails('details-3')">
-                            อ่านเพิ่มเติม <i class="fa-solid fa-arrow-right"></i>
-                        </button>
                     </div>
                 </div>
             </div>
         </section>
  
         <!-- ================= PORTFOLIO ================= -->
- 
         <section id="portfolio">  
             <div class="section-header">
                 <h2>Virtual Tour 360°</h2>
@@ -955,7 +908,6 @@
         <script async src="//cdn.thinglink.me/jse/responsive.js"></script>
  
         <!-- ================= ABOUT ================= -->
- 
         <section id="about">
             <div class="container">
                 <div class="section-header">
@@ -1004,7 +956,6 @@
         </section>
 
         <!-- ================= CONTACT ================= -->
-
         <section id="contact">
             <div class="container">
                 <div class="contact-box">
@@ -1013,7 +964,6 @@
                     <p>เลขที่ 319 หมู่ 8 ตำบลโพธิ์ อำเภอเมืองศรีสะเกษ จังหวัดศรีสะเกษ 33000</p>
                     <p>โทรศัพท์ : 045-617-677</p>
 
-                    <!-- ปุ่มข้อความ (เหมาะกับหน้าจอมือถือ กดง่าย) -->
                     <div class="contact-links">
                         <a href="https://www.facebook.com/sskruconnect?locale=th_TH" target="_blank">
                             <i class="fa-brands fa-facebook-f"></i> Facebook มหาวิทยาลัย
@@ -1026,23 +976,19 @@
                         </a>
                     </div>
 
-                    <!-- ไอคอนโซเชียลมีเดีย -->
                     <div class="socials">
-                        <!-- Facebook -->
                         <a href="https://www.facebook.com/sskruconnect?locale=th_TH"
                            target="_blank"
                            aria-label="Facebook">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
 
-                        <!-- Website -->
                         <a href="https://www.sskru.ac.th/"
                            target="_blank"
                            aria-label="Website">
                             <i class="fa-solid fa-globe"></i>
                         </a>
 
-                        <!-- Email -->
                         <a href="mailto:webmaster@sskru.ac.th"
                            aria-label="Email">
                             <i class="fa-solid fa-envelope"></i>
@@ -1054,7 +1000,6 @@
     </main>
 
     <!-- ================= FOOTER ================= -->
-
     <footer>
         <div class="container">
             <p>&copy; 2026 SSKRU Virtual Tour 360°. All rights reserved.</p>
