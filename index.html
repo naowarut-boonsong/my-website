@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
  
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
  
     <style>
@@ -68,7 +68,7 @@
             padding: 0 24px;
         }
  
-        /* Scroll Bar Indicator */
+        /* Scroll bar */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -80,6 +80,7 @@
             transition: width 0.1s ease;
         }
  
+        /* ================= HEADER ================= */
         header {
             position: fixed;
             top: 0;
@@ -102,7 +103,7 @@
         .logo {
             text-decoration: none;
             color: var(--primary-color);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -179,13 +180,14 @@
         .menu-btn {
             display: none;
         }
-
+ 
+        /* ================= HERO ================= */
         .hero {
             min-height: 100vh;
             padding: 150px 0 80px;
             display: flex;
             align-items: center;
-            background-image: linear-gradient(rgba(11, 19, 41, 0.82), rgba(11, 19, 41, 0.82)), url('https://placehold.co/1920x1080/0b1329/c59d2f?text=SSKRU+Campus+Background');
+            background-image: linear-gradient(rgba(11, 19, 41, 0.8), rgba(11, 19, 41, 0.8)), url('university-bg.jpg');
             width: 100%;
             background-size: cover;
             background-position: center;
@@ -219,7 +221,7 @@
         }
  
         .hero-text h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             line-height: 1.25;
             margin-bottom: 20px;
             color: #ffffff;
@@ -287,7 +289,7 @@
         }
  
         .hero-logo-img {
-            max-width: 300px;
+            max-width: 320px;
             width: 100%;
             height: auto;
             object-fit: contain;
@@ -299,6 +301,7 @@
             transform: scale(1.03);
         }
  
+        /* ================= SECTIONS ================= */
         section {
             padding: 90px 0;
         }
@@ -329,6 +332,7 @@
             border-radius: 2px;
         }
  
+        /* ================= SERVICES ================= */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -339,7 +343,7 @@
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 32px 24px;
+            padding: 35px 28px;
             border-radius: 16px;
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -379,7 +383,7 @@
         }
 
         .card-icon-btn:hover {
-            transform: scale(1.08);
+            transform: scale(1.1);
         }
  
         .card-icon-blue {
@@ -387,23 +391,31 @@
             color: #ffffff;
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
         }
+        
+        .card-icon-blue:hover {
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+        }
  
         .card-icon-yellow {
             background: linear-gradient(135deg, #d97706, #fbbf24);
             color: #ffffff;
             box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
         }
+
+        .card-icon-yellow:hover {
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+        }
  
         .card-title-group h3 {
             font-size: 1.15rem;
             font-weight: 600;
-            color: var(--text-color);
+            color: #ffffff;
             line-height: 1.3;
         }
  
         .card-subtitle {
             font-size: 0.82rem;
-            color: var(--text-muted);
+            color: #64748b;
             font-weight: 400;
         }
  
@@ -419,11 +431,11 @@
  
         .card-body {
             flex-grow: 1;
-            text-align: left;
+            text-align: center;
         }
  
         .card-body p {
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 0.92rem;
             line-height: 1.6;
         }
@@ -439,8 +451,8 @@
         .details-content {
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 1px dashed var(--border-color);
-            color: var(--text-muted);
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
             font-size: 0.88rem;
             text-align: left;
         }
@@ -452,56 +464,29 @@
         .details-content li {
             margin-bottom: 6px;
         }
-
-        /* Custom Styles for Symbol and Location Lists */
-        .symbol-list {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0 0;
-            font-size: 0.88rem;
-        }
-
-        .symbol-section-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin: 14px 0 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 4px;
-        }
-
-        .symbol-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            margin-bottom: 6px;
-            color: var(--text-color);
-            line-height: 1.4;
-        }
-
-        .symbol-badge {
-            background: var(--primary-light);
-            color: var(--primary-color);
-            font-weight: 600;
-            padding: 2px 7px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            min-width: 28px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .symbol-icon-badge {
-            color: #fbbf24;
-            width: 20px;
-            text-align: center;
-            flex-shrink: 0;
-            margin-top: 2px;
+ 
+        /* ================= PORTFOLIO ================= */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
  
+        .portfolio-card {
+            overflow: hidden;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: .3s;
+        }
+ 
+        .portfolio-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-hover);
+        }
+ 
+        /* ================= ABOUT ================= */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -537,6 +522,7 @@
             font-size: .85rem;
         }
  
+        /* ================= CONTACT ================= */
         .contact-box {
             max-width: 700px;
             margin: auto;
@@ -582,6 +568,7 @@
             transform: translateY(-4px);
         }
  
+        /* ================= FOOTER ================= */
         footer {
             border-top: 1px solid var(--border-color);
             padding: 30px 0;
@@ -590,10 +577,11 @@
             font-size: .9rem;
         }
  
+        /* ================= RESPONSIVE ================= */
         @media (max-width: 992px) {
             .grid-3 {
-                grid-template-columns: repeat(1, 1fr);
-                gap: 25px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
             }
         }
  
@@ -651,11 +639,17 @@
             }
  
             .hero-text h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
  
             .hero-logo-img {
                 max-width: 220px;
+            }
+        }
+ 
+        @media (max-width: 768px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
             }
         }
  
@@ -673,11 +667,11 @@
             }
  
             .hero-text h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
  
             .section-header h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
  
             .contact-box {
@@ -688,13 +682,15 @@
 </head>
  
 <body>
-    <!-- Scroll Progress Line -->
+ 
+    <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
  
+    <!-- ================= HEADER ================= -->
     <header>
         <div class="container nav-container">
             <a href="#home" class="logo">
-                <img src="https://placehold.co/100x100/c59d2f/ffffff?text=SSKRU" alt="SSKRU Logo" class="logo-img" onerror="this.src='https://placehold.co/100x100/c59d2f/ffffff?text=SSKRU'">
+                <img src="logo.png" alt="SSKRU Logo" class="logo-img">
                 SSKRU Virtual Tour
             </a>
  
@@ -709,8 +705,8 @@
             </nav>
  
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme" title="เปลี่ยนธีม">
-                    <i class="fa-solid fa-sun" id="themeIcon"></i>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
                 </button>
  
                 <button class="menu-btn" id="menuBtn" aria-label="Menu">
@@ -720,6 +716,7 @@
         </div>
     </header>
  
+    <!-- ================= HERO ================= -->
     <main>
         <section class="hero" id="home">
             <div class="container">
@@ -734,7 +731,7 @@
                             <span>Virtual Tour 360°</span>
                         </h1>
                         <p>
-                            สื่อทัวร์เสมือนจริง 360 องศา เพื่อแนะนำอาคาร สถานที่สำคัญ และเส้นทางภายใน
+                            สื่อทัวร์เสมือนจริง360 องศา เพื่อแนะนำอาคาร สถานที่สำคัญ และเส้นทางภายใน
                             มหาวิทยาลัยราชภัฏศรีสะเกษ ผ่านแพลตฟอร์ม ThingLink
                         </p>
                         <div class="btn-group">
@@ -744,22 +741,23 @@
                             </a>
                             <a href="#contact" class="btn btn-secondary">
                                 <i class="fa-solid fa-paper-plane"></i>
-                                ติดต่อเรา
+                                ติดต่อฉัน
                             </a>
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img src="https://placehold.co/400x400/0b1329/c59d2f?text=SSKRU+Emblem" alt="ตรามหาวิทยาลัยราชภัฏศรีสะเกษ" class="hero-logo-img" onerror="this.src='https://placehold.co/400x400/0b1329/c59d2f?text=SSKRU'">
+                        <img src="logo.png" alt="ตรามหาวิทยาลัยราชภัฏศรีสะเกษ" class="hero-logo-img">
                     </div>
                 </div>
             </div>
         </section>
-
+ 
+        <!-- ================= SERVICES ================= -->
         <section id="services">
             <div class="container">
                 <div class="section-header">
-                    <h2>คุณสมบัติและสัญลักษณ์สถานที่</h2>
-                    <p>สัญลักษณ์ จุดสำคัญ และวิธีใช้งานสื่อ Virtual Tour 360 องศา</p>
+                    <h2>คุณสมบัติของระบบ</h2>
+                    <p>จุดเด่นของสื่อ Virtual Tour 360 องศา (กดที่ไอคอนทรงกลมเพื่อดูรายละเอียดเพิ่มเติม)</p>
                 </div>
  
                 <div class="grid-3">
@@ -778,15 +776,15 @@
                         <div class="card-divider card-divider-blue"></div>
  
                         <div class="card-body">
-                            <p style="text-align: center;">
-                                คลิก "เริ่มชม Virtual Tour" หรือเลือกสถานที่ที่ต้องการ จากนั้นลากเมาส์/นิ้ว ซูมเข้า-ออก และใช้ Transit Tag / Text & Media Tag เพื่อดูข้อมูลเพิ่มเติม
+                            <p>
+                                คลิก "เริ่มชมVirtual Tour" หรือเลือกสถานที่ที่ต้องการ จากนั้นลากเมาส์/นิ้ว ซูมเข้า-ออก และใช้ Transit Tag / Text & Media Tag เพื่อดูข้อมูลเพิ่มเติม
                             </p>
                             <details id="details-1">
                                 <summary></summary>
                                 <div class="details-content">
                                     <ul>
                                         <li>เลือกสถานที่ตั้งต้นบนแผนที่</li>
-                                        <li>ลากเพื่อดูมุมมองแบบ panoramic 360°</li>
+                                        <li>ลากเพื่อดูมุมมองแบบ panoramic</li>
                                         <li>กดปุ่มไอคอนเพื่อเปิดดูสื่อมัลติมีเดีย</li>
                                     </ul>
                                 </div>
@@ -794,82 +792,32 @@
                         </div>
                     </div>
  
-                    <!-- Card 2: สัญลักษณ์และจุดสำคัญภายในมหาวิทยาลัย -->
+                    <!-- Card 2: ประโยชน์ของเว็บไซต์ -->
                     <div class="card">
                         <div class="card-header-flex">
                             <button class="card-icon-btn card-icon-yellow" onclick="toggleDetails('details-2')" title="คลิกเพื่ออ่านเพิ่มเติม">
-                                <i class="fa-solid fa-map-location-dot"></i>
+                                <i class="fa-solid fa-lightbulb"></i>
                             </button>
                             <div class="card-title-group">
-                                <h3>สัญลักษณ์และจุดสำคัญ</h3>
-                                <span class="card-subtitle">รายการอาคาร โซน และสิ่งอำนวยความสะดวก</span>
+                                <h3>ประโยชน์ของเว็บไซต์</h3>
+                                <span class="card-subtitle">Virtual Tour 360 องศา</span>
                             </div>
                         </div>
  
                         <div class="card-divider card-divider-yellow"></div>
  
                         <div class="card-body">
-                            <!-- Section 1: หมายเลขอาคาร -->
-                            <div class="symbol-section-title">
-                                <i class="fa-solid fa-building"></i> หมายเลขอาคารสถานที่
-                            </div>
-                            <div class="symbol-list">
-                                <div class="symbol-item"><span class="symbol-badge">1</span> อาคารเรียนรวม (อาคาร 1)</div>
-                                <div class="symbol-item"><span class="symbol-badge">3</span> อาคาร 3</div>
-                                <div class="symbol-item"><span class="symbol-badge">4</span> อาคาร 4</div>
-                                <div class="symbol-item"><span class="symbol-badge">5</span> อาคารเฉลิมพระเกียรติ 80 พรรษา (อาคาร 5)</div>
-                                <div class="symbol-item"><span class="symbol-badge">7</span> อาคารพัชรกิติยาภา (อาคาร 7)</div>
-                                <div class="symbol-item"><span class="symbol-badge">8</span> อาคาร 8</div>
-                                <div class="symbol-item"><span class="symbol-badge">9</span> อาคาร 9</div>
-                            </div>
-
-                            <!-- Section 2: สัญลักษณ์ภาษาอังกฤษ -->
-                            <div class="symbol-section-title">
-                                <i class="fa-solid fa-font"></i> สัญลักษณ์ภาษาอังกฤษ
-                            </div>
-                            <div class="symbol-list">
-                                <div class="symbol-item"><span class="symbol-badge">A</span> อาคาร/พื้นที่โซน A</div>
-                                <div class="symbol-item"><span class="symbol-badge">F</span> อาคาร/พื้นที่โซน F</div>
-                                <div class="symbol-item"><span class="symbol-badge">T</span> ศาลประจำมหาวิทยาลัย / หอพระ</div>
-                            </div>
-
+                            <p>
+                                ช่วยให้สำรวจสถานที่ภายในมหาวิทยาลัย ได้เสมือนจริง ค้นหาอาคารและเส้นทางได้ง่าย เหมาะสำหรับนักศึกษาใหม่ ผู้ปกครอง และผู้ที่สนใจ และ ใช้งานได้ทุกที่ทุกเวลา ผ่านอินเทอร์เน็ต
+                            </p>
                             <details id="details-2">
                                 <summary></summary>
                                 <div class="details-content">
-                                    <!-- Section 3: สัญลักษณ์ไอคอนประเภทอาคาร -->
-                                    <div class="symbol-section-title">
-                                        <i class="fa-solid fa-icons"></i> ไอคอนประเภทอาคาร & สิ่งอำนวยความสะดวก
-                                    </div>
-                                    <div class="symbol-list">
-                                        <div class="symbol-item">
-                                            <i class="fa-solid fa-graduation-cap symbol-icon-badge"></i>
-                                            <span><strong>หมวกปริญญา:</strong> อาคารเรียน / อาคารคณะ</span>
-                                        </div>
-                                        <div class="symbol-item">
-                                            <i class="fa-solid fa-book-open symbol-icon-badge"></i>
-                                            <span><strong>หนังสือ/หอสมุด:</strong> สำนักวิทยบริการและเทคโนโลยีสารสนเทศ (หอสมุดกลาง)</span>
-                                        </div>
-                                        <div class="symbol-item">
-                                            <i class="fa-solid fa-landmark symbol-icon-badge"></i>
-                                            <span><strong>เสาโรมัน/อาคาร:</strong> อาคารสำนักงานอธิการบดี / หอประชุมใหญ่</span>
-                                        </div>
-                                        <div class="symbol-item">
-                                            <i class="fa-solid fa-utensils symbol-icon-badge"></i>
-                                            <span><strong>ช้อนส้อม:</strong> ศูนย์อาหาร / โรงอาหาร</span>
-                                        </div>
-                                        <div class="symbol-item">
-                                            <i class="fa-solid fa-music symbol-icon-badge"></i>
-                                            <span><strong>ตัวโน้ต:</strong> อาคารศูนย์ศิลปะและวัฒนธรรม / ดนตรี</span>
-                                        </div>
-                                        <div class="symbol-item">
-                                            <i class="fa-solid fa-basketball symbol-icon-badge"></i>
-                                            <span><strong>บาสเกตบอล & ลู่วิ่ง/สนามฟุตบอล:</strong> สนามกีฬาอเนกประสงค์, อาคารพลศึกษา และสนามสเตเดียม</span>
-                                        </div>
-                                        <div class="symbol-item">
-                                            <i class="fa-solid fa-car symbol-icon-badge"></i>
-                                            <span><strong>รถยนต์ & รถจักรยานยนต์:</strong> จุดจอดรถยนต์ และจุดจอดรถจักรยานยนต์</span>
-                                        </div>
-                                    </div>
+                                    <ul>
+                                        <li>ประหยัดเวลาในการวางแผนการเดินทาง</li>
+                                        <li>ให้ข้อมูลอาคารเรียนและจุดบริการครบถ้วน</li>
+                                        <li>ใช้งานสะดวกได้จากทุกสถานที่ทั่วโลก</li>
+                                    </ul>
                                 </div>
                             </details>
                         </div>
@@ -890,16 +838,15 @@
                         <div class="card-divider card-divider-blue"></div>
  
                         <div class="card-body">
-                            <p style="text-align: center;">
-                                สามารถใช้งานได้อย่างลื่นไหลผ่านคอมพิวเตอร์ แท็บเล็ต และสมาร์ตโฟน ได้ทุกที่ทุกเวลา
+                            <p>
+                                สามารถใช้งานผ่านคอมพิวเตอร์ แท็บเล็ต และสมาร์ตโฟน
                             </p>
                             <details id="details-3">
                                 <summary></summary>
                                 <div class="details-content">
                                     <ul>
-                                        <li>รองรับระบบปฏิบัติการ iOS, Android, Windows, macOS</li>
+                                        <li>รองรับ iOS, Android, Windows, macOS</li>
                                         <li>แสดงผลสวยงามบนทุกขนาดหน้าจอ (Responsive)</li>
-                                        <li>หมุนดูได้รอบทิศทาง 360 องศา</li>
                                     </ul>
                                 </div>
                             </details>
@@ -909,38 +856,38 @@
             </div>
         </section>
  
+        <!-- ================= PORTFOLIO ================= -->
         <section id="portfolio">  
-            <div class="container">
-                <div class="section-header">
-                    <h2>Virtual Tour 360°</h2>
-                    <p>สำรวจมหาวิทยาลัยราชภัฏศรีสะเกษแบบ 360 องศา</p>
-                </div>
-                <div style="display: flex; justify-content: center; width: 100%;">
-                    <iframe
-                        width="960"
-                        height="540"
-                        data-original-width="1920"
-                        data-original-height="1080"
-                        src="https://www.thinglink.com/view/scene/2157062321090855780"
-                        title="Sisaket Rajabhat University"
-                        type="text/html"
-                        style="border: none; max-width: 100%; border-radius: 16px; box-shadow: var(--shadow);"
-                        webkitallowfullscreen
-                        mozallowfullscreen
-                        allowfullscreen
-                        scrolling="no">
-                    </iframe>
-                </div>
+            <div class="section-header">
+                <h2>Virtual Tour 360°</h2>
+                <p>สำรวจมหาวิทยาลัยราชภัฏศรีสะเกษแบบ 360 องศา</p>
+            </div>
+            <div style="display: flex; justify-content: center; width: 100%;">
+                <iframe
+                    width="960"
+                    height="540"
+                    data-original-width="1920"
+                    data-original-height="1080"
+                    src="https://www.thinglink.com/view/scene/2157062321090855780"
+                    title="Sisaket Rajabhat University"
+                    type="text/html"
+                    style="border: none; max-width: 100%;"
+                    webkitallowfullscreen
+                    mozallowfullscreen
+                    allowfullscreen
+                    scrolling="no">
+                </iframe>
             </div>
         </section>
  
         <script async src="//cdn.thinglink.me/jse/responsive.js"></script>
  
+        <!-- ================= ABOUT ================= -->
         <section id="about">
             <div class="container">
                 <div class="section-header">
-                    <h2>เกี่ยวกับเรา</h2>
-                    <p>ข้อมูลผู้จัดทำและเทคโนโลยีที่ใช้พัฒนา</p>
+                    <h2>เกี่ยวกับฉัน</h2>
+                    <p>ข้อมูลแนะนำตัวและความสนใจ</p>
                 </div>
                 <div class="about-content">
                     <div class="about-box">
@@ -948,10 +895,10 @@
                         <p style="margin-bottom: 10px; color: var(--text-muted);">
                             โครงการพัฒนาสื่อทัวร์เสมือนจริง 360 องศา มหาวิทยาลัยราชภัฏศรีสะเกษ
                         </p>
-                        <p style="color: var(--text-color); font-weight: 500;">
+                        <p>
                             นางสาวสุพรรษา โพธิ์เจริญ<br>
                             นางสาวเนาวรัตน์ บุญส่ง<br>
-                            <span style="font-weight: normal; color: var(--text-muted);">มหาวิทยาลัยราชภัฏศรีสะเกษ</span>
+                            มหาวิทยาลัยราชภัฏศรีสะเกษ
                         </p>
                         <div class="skills">
                             <span class="skill">Virtual Tour</span>
@@ -983,18 +930,19 @@
             </div>
         </section>
 
+        <!-- ================= CONTACT ================= -->
         <section id="contact">
             <div class="container">
                 <div class="contact-box">
                     <h2>ติดต่อเรา</h2>
-                    <p><strong style="color: var(--primary-color);">มหาวิทยาลัยราชภัฏศรีสะเกษ</strong></p>
+                    <p><strong>มหาวิทยาลัยราชภัฏศรีสะเกษ</strong></p>
                     <p>เลขที่ 319 หมู่ 8 ตำบลโพธิ์ อำเภอเมืองศรีสะเกษ จังหวัดศรีสะเกษ 33000</p>
-                    <p><i class="fa-solid fa-phone" style="margin-right: 6px; color: var(--primary-color);"></i> โทรศัพท์ : 045-617-677</p>
+                    <p>โทรศัพท์ : 045-617-677</p>
 
+                    <!-- ไอคอนโซเชียลมีเดียทรงกลมสำหรับกดไปยังลิงก์ติดต่อ -->
                     <div class="socials">
                         <a href="https://www.facebook.com/sskruconnect?locale=th_TH"
                            target="_blank"
-                           rel="noopener noreferrer"
                            aria-label="Facebook"
                            title="Facebook มหาวิทยาลัย">
                             <i class="fa-brands fa-facebook-f"></i>
@@ -1002,7 +950,6 @@
 
                         <a href="https://www.sskru.ac.th/"
                            target="_blank"
-                           rel="noopener noreferrer"
                            aria-label="Website"
                            title="เว็บไซต์มหาวิทยาลัย">
                             <i class="fa-solid fa-globe"></i>
@@ -1019,14 +966,16 @@
         </section>
     </main>
 
+    <!-- ================= FOOTER ================= -->
     <footer>
         <div class="container">
             <p>&copy; 2026 SSKRU Virtual Tour 360°. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- JavaScript สำหรับระบบเปลี่ยนธีม Toggle และ Scroll Progress -->
     <script>
-        // Toggle card details expandable view
+        // Toggle details
         function toggleDetails(id) {
             const details = document.getElementById(id);
             if (details) {
@@ -1034,18 +983,15 @@
             }
         }
 
-        // Scroll Progress Bar Update
+        // Scroll Progress Bar
         window.onscroll = function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            const progressBar = document.getElementById("scrollProgress");
-            if (progressBar) {
-                progressBar.style.width = scrolled + "%";
-            }
+            document.getElementById("scrollProgress").style.width = scrolled + "%";
         };
 
-        // Mobile Navigation Menu Toggle
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
         if (menuBtn && navLinks) {
@@ -1054,20 +1000,19 @@
             });
         }
 
-        // Dark / Light Theme Toggle Listener
+        // Dark/Light Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        if (themeToggle && themeIcon) {
+        if (themeToggle) {
             themeToggle.addEventListener('click', () => {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
-                if (currentTheme === 'light') {
-                    document.documentElement.removeAttribute('data-theme');
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                
+                const icon = themeToggle.querySelector('i');
+                if (newTheme === 'light') {
+                    icon.className = 'fa-solid fa-moon';
                 } else {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
+                    icon.className = 'fa-solid fa-sun';
                 }
             });
         }
